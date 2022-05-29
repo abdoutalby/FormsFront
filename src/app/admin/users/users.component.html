@@ -1,0 +1,30 @@
+<section>
+    <h1>
+        Users
+    </h1>
+    <table class="table table-striped mt-4">
+        <thead class="thead-light">
+            <tr>
+
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.tel}}</td>
+
+                <td [ngSwitch]="user.status" (click)="updateStatus(user.id)">
+                    <button class='btn btn-danger text-black' *ngSwitchCase="true">disable</button>
+                    <button class='btn btn-success' *ngSwitchCase="false">enable</button>
+                </td>
+
+            </tr>
+            <tr>
+    </table>
+</section>

@@ -1,0 +1,73 @@
+<div class="sidebar-brand">
+    <div class="sidebar-brand-logo">
+        <span><img src="assets/soumaya.png" alt="logo" style="width: 80px;"></span>
+    </div>
+
+</div>
+<div class="sidebar-title">
+    <small>Menu</small>
+</div>
+<div class="sidebar-menu">
+    <ul>
+        <li>
+            <a routerLink="dashboard" routerLinkActive="active">
+                <span class="fas fa-home" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></span>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="admins" routerLinkActive="active">
+                <span class="fas fa-user-shield" data-bs-toggle="tooltip" data-bs-placement="right" title="admins">
+
+        </span><span>Admins</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="users" routerLinkActive="active">
+                <span class="fas fa-user" data-bs-toggle="tooltip" data-bs-placement="right" title="users"></span>
+                <span> Users</span>
+            </a>
+        </li>
+
+
+
+        <li>
+            <a routerLink="enquettes" routerLinkActive="active">
+                <span class="fas fa-file-circle-question" data-bs-toggle="tooltip" data-bs-placement="right" title="enquettes"></span>
+                <span>Enquettes</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="questions" routerLinkActive="active">
+                <span class="fas fa-circle-question" data-bs-toggle="tooltip" data-bs-placement="right" title="questions"></span>
+                <span>Questions</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="responses" routerLinkActive="active">
+                <span class="fas fa-file-circle-check" data-bs-toggle="tooltip" data-bs-placement="right" title="responses"></span>
+                <span>Responses</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="reclamations" routerLinkActive="active">
+                <span class="fas fa-comments" data-bs-toggle="tooltip" data-bs-placement="right" title="reclamations"></span>
+                <span>Reclamations</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="sidebar-footer">
+    <button class="logout-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout" (click)="logout()">
+    <i class="fas fa-sign-out-alt"></i>
+    <div class="ms-1">Déconnexion</div>
+  </button>
+
+</div>

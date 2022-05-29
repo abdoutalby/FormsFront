@@ -1,0 +1,12 @@
+<p>enquette works! with id {{id}}</p>
+
+<form>
+    <input type="text" name="question" [(ngModel)]="question">
+
+    <input type="text" name="question" [(ngModel)]="type"> >
+    <button class="btn btn-outline-success" (click)="addQuestion()"> add question</button>
+</form>
+<div class="container" *ngFor="let q of questions">
+    <p> {{q.question}}</p>
+    <app-question-edit></app-question-edit>
+</div>
