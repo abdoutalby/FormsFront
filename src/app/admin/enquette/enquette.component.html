@@ -1,12 +1,16 @@
-<p>enquette works! with id {{id}}</p>
+<section>
+    <div class="container">
+        <div class="text-center mb-5">
+            <h3> {{enquette?.titre}}</h3>
+            <p class="lead">{{enquette?.description}}</p>
+        </div>
+        <div>
+            <h1></h1>
+            <p></p>
+            <div class="container" *ngFor="let q of questions">
 
-<form>
-    <input type="text" name="question" [(ngModel)]="question">
-
-    <input type="text" name="question" [(ngModel)]="type"> >
-    <button class="btn btn-outline-success" (click)="addQuestion()"> add question</button>
-</form>
-<div class="container" *ngFor="let q of questions">
-    <p> {{q.question}}</p>
-    <app-question-edit></app-question-edit>
-</div>
+                <app-question-edit [question]="q" (deleteEvent)="deleteQuestion(q.id)"></app-question-edit>
+            </div>
+        </div>
+    </div>
+</section>

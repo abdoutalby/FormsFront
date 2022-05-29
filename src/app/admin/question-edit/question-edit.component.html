@@ -1,8 +1,32 @@
-<div class="container" style="width: 40%; height:60px; border:px solid black; border-radius: 5px;">
+<div class="card mb-3 " [ngClass]="question.status?'active':'inactive'">
+    <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
 
-    <input type="text" placeholder="Question titre" [(ngModel)]="titre">
-    <div class="d-flex">
-        <input type="text" placeholder="Question titre" [(ngModel)]="type">
+            <div class="row flex-fill">
+                <div class="col-sm-6">
+                    <h4 class="h5">{{question.question}}</h4>
+
+                </div>
+                <div class="col ">
+                    <div class="row flex-fill" [ngSwitch]="question.status">
+                        <div class="col text-lg-end" (click)="changeStauts()" *ngSwitchCase="true">
+                            <a class="btn btn-danger stretched-link">Disable</a>
+                        </div>
+
+                        <div class="col text-lg-end" (click)="changeStauts()" *ngSwitchCase="false">
+                            <a class="btn btn-success stretched-link">Enable</a>
+                        </div>
+
+                        <div class="col text-lg-end" (click)="delete()">
+                            <a class="btn btn-danger stretched-link"> delete</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
 
     </div>
-</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,  } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EnquetteService } from 'src/app/services/enquette.service';
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-enquette',
@@ -18,7 +19,8 @@ export class EnquetteComponent implements OnInit {
   questions !: any ;
   constructor(private toaster : ToastrService ,
     private service : EnquetteService,
-    private route : ActivatedRoute ) { }
+    private route : ActivatedRoute , 
+    private questionService : QuestionService ) { }
 
   ngOnInit(): void {
      
@@ -26,6 +28,19 @@ export class EnquetteComponent implements OnInit {
       this.getEnquette()
       this.getQuestions()
        
+  }
+
+  deleteQuestion(id: any ){
+      this.questionService.delete(id).subscribe({
+        next:()=>{
+          this.toaster.success('' , 'deleted')
+          this.getQuestions()
+        }, 
+        error: (err)=>{
+          console.error(err)
+          this.toaster.error('' , err)
+        }
+      })
   }
 
   getEnquette( ){

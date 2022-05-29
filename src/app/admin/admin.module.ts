@@ -14,25 +14,31 @@ import { ResponsesComponent } from './responses/responses.component';
 import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
-import { EnquetteComponent } from './enquette/enquette.component'; 
+import { EnquetteComponent } from './enquette/enquette.component';
 import { QuestionEditComponent } from './question-edit/question-edit.component';
+ 
 
 @NgModule({
   declarations: [
     AdminComponent,
     SidenavComponent,
-    HeaderComponent, 
+    HeaderComponent,
     UsersComponent,
-     AdminsComponent,
-     EnquettesComponent,
-     QuestionsComponent,
-     ResponsesComponent,
-     ReclamationsComponent,
-     DashboardComponent,
-     EnquetteComponent,
-     QuestionEditComponent,
+    AdminsComponent,
+    EnquettesComponent,
+    QuestionsComponent,
+    ResponsesComponent,
+    ReclamationsComponent,
+    DashboardComponent,
+    EnquetteComponent,
+    QuestionEditComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule , FormsModule , ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    FormsModule,
  
+
+  ],
 })
 export class AdminModule {}
