@@ -7,12 +7,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-user!:any;
+ 
 
-  constructor(private auth:AuthService) { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
-  this.user = this.auth.getLoggedInUser();
+    this.auth.LoggedInUser()
   }
 
 }

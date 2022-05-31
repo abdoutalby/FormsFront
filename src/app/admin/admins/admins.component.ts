@@ -56,6 +56,8 @@ export class AdminsComponent implements OnInit {
       status : true,
       role: ['admin']
     }
+
+     
     this.auth.register( Data ).subscribe(
       {
         next: (res : any) => {

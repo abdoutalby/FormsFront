@@ -1,59 +1,73 @@
-<section>
-    <h1>Admins</h1>
+<section class="main">
+  <h1>Admins</h1>
 
-    <button class="btn btn-lg btn-outline-success" (click)="changeShowAdd()">
+  <button class="btn btn-lg btn-outline-success" (click)="changeShowAdd()">
     Add new Enquette
   </button>
 
-    <div *ngIf="showAdd" class="container align-items-center" style="width: 50%">
-        <form class="mx-1 mx-md-4">
-            <div class="d-flex flex-row align-items-center mb-4">
-                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                <div class="form-outline flex-fill mb-0">
-                    <input type="text " class="form-control" name="titre " [(ngModel)]="titre" />
-                    <label class="form-label">Title</label>
-                </div>
-            </div>
+  <div *ngIf="showAdd" class="container align-items-center" style="width: 50%">
+    <form class="mx-1 mx-md-4">
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input
+            type="text "
+            class="form-control"
+            name="titre "
+            [(ngModel)]="titre"
+          />
+          <label class="form-label">Title</label>
+        </div>
+      </div>
 
-            <div class="d-flex flex-row align-items-center mb-4">
-                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                <div class="form-outline flex-fill mb-0">
-                    <input type="text " class="form-control" name="description " [(ngModel)]="description" />
-                    <label class="form-label">Description</label>
-                </div>
-            </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input
+            type="text "
+            class="form-control"
+            name="description "
+            [(ngModel)]="description"
+          />
+          <label class="form-label">Description</label>
+        </div>
+      </div>
 
-            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                <button type="button " class="btn btn-success btn-lg" (click)="create()">
+      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <button
+          type="button "
+          class="btn btn-success btn-lg"
+          (click)="create()"
+        >
           Create
         </button>
-            </div>
-        </form>
-    </div>
+      </div>
+    </form>
+  </div>
 
-    <table class="table table-striped mt-4">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">Titre</th>
-                <th scope="col">description</th>
-                <th scope="col">User</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of enquettes">
-                <td>{{ item.titre }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.user.username }}</td>
-                <td>
-                    <button class="btn btn-outline-info mx-2" (click)="edit(item.id)">
+  <table class="table table-striped mt-4">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Titre</th>
+        <th scope="col">description</th>
+        <th scope="col">User</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of enquettes">
+        <td>{{ item.titre }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.user.username }}</td>
+        <td>
+          <button class="btn btn-outline-info mx-2" (click)="edit(item.id)">
             Details
           </button>
-                    <button class="btn btn-outline-danger" (click)="delete(item.id)">
+          <button class="btn btn-outline-danger" (click)="delete(item.id)">
             delete
           </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>

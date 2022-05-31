@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("token" , res.accessToken);
             localStorage.setItem('user' ,JSON.stringify( res.user));
             if(this.service.isLoggedAdmin()){
-              this.router.navigate(['/admin'])
+              this.router.navigate(['/admin/dashboard'])
             }
           else{
             if(res.user.status){
@@ -38,12 +38,15 @@ export class LoginComponent implements OnInit {
           
             }else {
               this.toastr.error(' inactive account   ', 'OOPS!');
+              this.username = ''
+              this.pwd = ''
             }
 
           }
         },
         error: (err) => {
-           
+          this.username = ''
+          this.pwd = ''
           this.toastr.error(' Bad  credantials  ', 'OOPS!');
         }
 

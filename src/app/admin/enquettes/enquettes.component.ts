@@ -41,7 +41,7 @@ export class EnquettesComponent implements OnInit {
   }
 
   create(){ 
-    const u = this.auth.getLoggedInUser();
+    const u = this.auth.user;
      
     if(u){
       const user = JSON.parse(u);

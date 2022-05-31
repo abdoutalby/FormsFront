@@ -21,6 +21,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { QuestionEditComponent } from './components/question-edit/question-edit.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { QuestionEditComponent } from './components/question-edit/question-edit.
     
     NotFoundComponent,
          QuestionEditComponent,
+         DialogComponent,
   ],
   imports: [
     BrowserModule,

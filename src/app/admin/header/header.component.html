@@ -1,16 +1,22 @@
 <header>
-    <h4>
-        <label for="nav-toggle">
+  <h4>
+    <label for="nav-toggle">
       <span class="fas fa-bars"></span>
-    </label> Dashboard
-    </h4>
+    </label>
+    Dashboard
+  </h4>
 
-    <div class="user-wrapper">
-        <img src="assets/soumaya.png" width="50px" height="50px" alt="admin">
+  <div class="user-wrapper">
+    <img src="assets/soumaya.png" width="50px" height="50px" alt="admin" />
 
-        <div>
-            <h6>{{user.user}}</h6>
-            <small>{{user.role}} <i class="fas fa-circle fa-xs text-success"></i></small>
-        </div>
+    <div>
+      <h6 style="font-weight: bolder; font-size: large">
+        {{ auth.user.name }}
+      </h6>
+      <small
+        >{{ auth.isLoggedAdmin() ? "Admin" : "SUper" }}
+        <i class="fas fa-circle fa-xs text-success"></i
+      ></small>
     </div>
+  </div>
 </header>

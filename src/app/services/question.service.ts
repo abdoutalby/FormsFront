@@ -14,5 +14,5 @@ export class QuestionService {
       return this.http.delete(this.api+id , this.auth.getToken());
     }
   changeStatus(id: any) {
-   return this.http.put(this.api ,{} , this.auth.getToken())
+   return this.http.put(this.api+id ,{} , this.auth.getToken())
   }}

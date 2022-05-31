@@ -14,6 +14,10 @@ export class QuestionEditComponent implements OnInit {
   edit = false;
   @Output()
   deleteEvent :EventEmitter<any> = new EventEmitter<any>()
+
+  @Output()
+  StatusEvent : EventEmitter<any> = new EventEmitter<any>();
+
   @Input()
   question !: any;
   constructor(private service : QuestionService , private toaster : ToastrService) { }
@@ -23,15 +27,11 @@ export class QuestionEditComponent implements OnInit {
   }
  
   changeStauts(){
- 
-  this.service.changeStatus(this.question.id).subscribe({
-    next: ()=>{
-      this.toaster.success('' , 'status changed clicked')
-    }
-  })
+    this.StatusEvent.emit()
+  
 }
 
 delete( ){
-  this.deleteEvent.emit()
+  this.deleteEvent.emit(this.question)
 }
 }
