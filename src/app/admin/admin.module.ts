@@ -15,8 +15,15 @@ import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { EnquetteComponent } from './enquette/enquette.component';
-import { QuestionEditComponent } from './question-edit/question-edit.component';
- 
+import { QuestionEditComponent } from './question-edit/question-edit.component'; 
+import { AddEnquetteComponent } from '../components/add-enquette/add-enquette.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select'
+import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { QuestionViewComponent } from './question-view/question-view.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +39,17 @@ import { QuestionEditComponent } from './question-edit/question-edit.component';
     DashboardComponent,
     EnquetteComponent,
     QuestionEditComponent,
-  ],
+    AddEnquetteComponent,
+QuestionViewComponent  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule,
+    FormsModule, MatInputModule , 
+    MatCardModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
  
 
   ],

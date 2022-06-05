@@ -14,7 +14,7 @@ export class EnquettesComponent implements OnInit {
 
   enquettes !: any ;
 
-  showAdd = false ;
+ 
 
   titre!: string ;
   description !: string;
@@ -36,38 +36,9 @@ export class EnquettesComponent implements OnInit {
     })
   }
 
-  changeShowAdd(){
-    this.showAdd = !this.showAdd;
-  }
+   
 
-  create(){ 
-    const u = this.auth.user;
-     
-    if(u){
-      const user = JSON.parse(u);
-      
-      const enq = {
-        titre : this.titre ,
-        description : this.description , 
-        user :user,
-        status : true 
-      }
-      console.log(enq , 'form data ')
-     
-            
-            this.service.create(enq ).subscribe({
-              next : (res)=>{
-                this.enquettes.push(res)
-                this.toaster.success('' , 'enqette added succsefully ')
-                this.changeShowAdd()
-              },
-              error: (err)=>{
-                console.log(err)
-                this.toaster.error('' , err.message)
-              }
-            })
-         }
-    }
+
    
 
     edit(id : number){

@@ -1,0 +1,12 @@
+<section class="bg bg-light-primary">
+  <div class="text-center mt-4">
+    <h1>{{ enquette?.titre }}</h1>
+    <h5>{{ enquette?.description }}</h5>
+    <div class="container" style="width: 60%">
+      <app-question-view
+        *ngFor="let ques of questions"
+        [question]="ques"
+      ></app-question-view>
+    </div>
+  </div>
+</section>

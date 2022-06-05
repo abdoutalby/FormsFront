@@ -1,0 +1,61 @@
+<div class="card mx-4 my-4">
+  <h1>{{ question.question }} ?</h1>
+  <div [ngSwitch]="question.type">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      *ngSwitchCase="types[2]"
+    >
+      <mat-label>{{ question.question }} </mat-label>
+      <textarea
+        matInput
+        placeholder="your response here..."
+        name="description "
+        [(ngModel)]="question.description"
+      ></textarea>
+    </mat-form-field>
+
+    <section class="example-section" *ngSwitchCase="types[0]">
+      <mat-checkbox class="example-margin">option one </mat-checkbox>
+    </section>
+
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      *ngSwitchCase="types[1]"
+    >
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" *ngSwitchCase="types[3]">
+      <mat-label>{{ question.question }}</mat-label>
+      <mat-select disableRipple>
+        <mat-option value="1">Option 1</mat-option>
+        <mat-option value="2">Option 2</mat-option>
+        <mat-option value="3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      *ngSwitchCase="types[4]"
+    >
+      <mat-label>Number response</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      *ngSwitchCase="types[5]"
+    >
+      <mat-label>Text response</mat-label>
+      <input matInput type="text" />
+    </mat-form-field>
+  </div>
+</div>

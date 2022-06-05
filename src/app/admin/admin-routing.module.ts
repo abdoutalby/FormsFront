@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddEnquetteComponent } from '../components/add-enquette/add-enquette.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { AdminComponent } from './admin.component';
 import { AdminsComponent } from './admins/admins.component';
@@ -11,26 +12,33 @@ import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { UsersComponent } from './users/users.component';
 
-const routes: Routes = [{ path: '', component: AdminComponent , children: [
-{path:'users' , component:UsersComponent} , 
-{path:'admins' , component : AdminsComponent},
-{path:'reclamations' , component : ReclamationsComponent},
-{path : 'questions' , component : QuestionsComponent},
-{path: 'responses' , component : ResponsesComponent},
-{path : 'enquettes' , component:EnquettesComponent},
-{path : 'dashboard' , component: DashboardComponent},
-{path: 'enquettes/:id' , component : EnquetteComponent},
-{ path: "**" , component:NotFoundComponent }
+const routes: Routes = [
+  {
+    path: '',
+    component: AdminComponent,
+    children: [
+      { path: 'users', component: UsersComponent },
+      { path: 'admins', component: AdminsComponent },
+      { path: 'reclamations', component: ReclamationsComponent },
+      { path: 'questions', component: QuestionsComponent },
+      { path: 'responses', component: ResponsesComponent },
+      { path: 'enquettes', component: EnquettesComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'enquettes/:id',
+        component: EnquetteComponent,
+       
+      },
+     { path: 'addEnquette', component: AddEnquetteComponent },
+      { path: '**', component: NotFoundComponent },
+    ],
+  },
 
-]
-},
-
-{ path: "**" , component:NotFoundComponent }
-
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
             }
           else{
             if(res.user.status){
-          this.router.navigate(['/home'])
+          this.router.navigate(['/user/home'])
           
             }else {
               this.toastr.error(' inactive account   ', 'OOPS!');

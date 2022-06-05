@@ -22,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { QuestionEditComponent } from './components/question-edit/question-edit.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-@NgModule({
+import {MatInputModule} from '@angular/material/input';
+ @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -32,6 +33,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     NotFoundComponent,
          QuestionEditComponent,
          DialogComponent,
+         
   ],
   imports: [
     BrowserModule,
@@ -44,8 +46,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
-    NgbModule  
-  ],
+    NgbModule  ,
+   ],
+  
   providers: [],
   bootstrap: [AppComponent], 
 })
