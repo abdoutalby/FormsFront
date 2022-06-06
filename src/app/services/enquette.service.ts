@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Enquette } from '../models/enquette';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -10,8 +12,8 @@ export class EnquetteService {
 
   constructor(private auth: AuthService, private http: HttpClient) {}
 
-  getall() {
-    return this.http.get(this.api, this.auth.getToken());
+  getall() : Observable<Enquette[]>{
+    return this.http.get<Enquette[]>(this.api, this.auth.getToken());
   }
 
   create(Data: any) {

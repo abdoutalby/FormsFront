@@ -1,0 +1,75 @@
+.container {
+    width: 45%;
+    margin: auto auto 3rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+ }
+ 
+ .full-width {
+    width: 100%;
+ }
+ 
+ h1, img, p{
+    text-align: center;
+ }
+ 
+ img {
+    height: 15rem;
+ }
+ 
+ .status-priorite {
+    display: flex;
+    justify-content: space-between;
+ }
+ 
+ .status-priorite  mat-form-field {
+    width: 49%;
+ }
+ 
+ .contenu {
+    min-height: 6rem;
+    max-height: 10rem;
+ }
+ 
+ button {
+    margin-top: .5rem;
+ }
+ 
+ p {
+    margin-top: 3rem;
+    opacity: .5;
+ }
+ .progress-bar {
+   padding: 0;
+ }
+ .progress {
+   width: 50px;
+ }
+ #fileInput {
+   position: absolute;
+   cursor: pointer;
+   z-index: 10;
+   opacity: 0;
+   height: 100%;
+   left: 0px;
+   top: 0px;
+ }
+ .mat-toolbar-single-row {
+   height: auto !important;
+   background: transparent;
+   padding: 0;
+ }
+ .mat-toolbar-single-row button {
+   width: 100px;
+ }
+ .mat-form-field {
+   width: 100%;
+ }
+ .message {
+   background-color: #ddd;
+   padding: 15px;
+   color: #333;
+   border: #aaa solid 1px;
+   border-radius: 4px;
+   margin-bottom: 10px;
+ }

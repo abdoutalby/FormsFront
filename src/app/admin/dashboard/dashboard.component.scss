@@ -1,0 +1,73 @@
+h1 {
+    font-size: 2rem;
+    color: #222;
+    font-weight: 400;
+}
+
+.section .box-information {
+    height: 115px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 30px;
+}
+
+.section .box-information a {
+    color: #222;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 29px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    border-bottom: 4px solid  #005a817d;;
+    transition: all .3s ease;
+}
+
+.section .box-information a:hover {
+    transition: all,.4s,ease;
+    background: #005a817d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.section .box-information .image img {
+    width: 75px;
+    height: 75px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.section .box-information .text .small {
+    font-size: 60%;
+}
+
+/* Media Queries */
+
+@media (min-width: 1230px) {
+.section .container {
+    max-width: 1100px;
+    }
+}    
+@media (min-width: 992px) {
+    .section .box-information {
+        margin: 0 5px 30px;
+        }
+    }  
+    
+    @media (max-width: 768px) {
+        .section .box-information .text {
+            margin-left: 1rem;
+        }
+    
+        .section .box-information {
+            height: 130px;
+        }
+    
+        span.small {
+            line-height: 20px;
+        }
+    }  

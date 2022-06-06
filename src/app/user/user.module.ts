@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { EnquettesComponent } from './enquettes/enquettes.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnquetteComponent } from './enquette/enquette.component'; 
 import { QuestionViewComponent } from './question-view/question-view.component';
 import { AddEnquetteComponent } from '../components/add-enquette/add-enquette.component';
@@ -17,8 +17,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { AddEnqUserComponent } from './add-enq-user/add-enq-user.component';
 
 @NgModule({
   declarations: [
@@ -31,20 +38,28 @@ import { MatNativeDateModule } from '@angular/material/core';
     EnquettesComponent,
     EnquetteComponent,
     QuestionViewComponent,
+    AddEnqUserComponent,
     
    
   ],
   imports: [
     CommonModule,
     UserRoutingModule, 
-    MatMenuModule,
-    FormsModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+   MatPaginatorModule,
+   MatCheckboxModule,
+   MatButtonModule,
+   MatSelectModule,
+   MatInputModule,
+   MatTableModule,
+   MatIconModule,
+   MatListModule,
+   MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule
+
+
   ]
   ,  
 })
