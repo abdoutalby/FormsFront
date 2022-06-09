@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ReclamationService {
+  
  
   api = 'http://localhost:8080/api/reclamation/'
   constructor(private auth : AuthService, private http: HttpClient) { } 
@@ -13,5 +14,10 @@ export class ReclamationService {
   
   reclamer(rec:any) {
     return this.http.post(this.api, rec,this.auth.getToken())
+  }
+  
+  getAll() {
+    
+    return this.http.get(this.api , this.auth.getToken())
   }
 }

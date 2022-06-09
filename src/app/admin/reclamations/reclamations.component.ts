@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ReclamationService } from 'src/app/services/reclamation.service';
 
 @Component({
   selector: 'app-reclamations',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReclamationsComponent implements OnInit {
 
-  constructor() { }
+  reclams : any ;
+  constructor(private  service : ReclamationService , private toaster : ToastrService) { }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe({
+      next : (res : any)=> this.reclams = res ,
+      error: (err : any)=> this.toaster.error(err)
+    })
   }
 
 }
