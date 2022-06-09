@@ -24,12 +24,8 @@ const routes: Routes = [
       { path: 'responses', component: ResponsesComponent },
       { path: 'enquettes', component: EnquettesComponent },
       { path: 'dashboard', component: DashboardComponent },
-      {
-        path: 'enquettes/:id',
-        component: EnquetteComponent,
-       
-      },
-     { path: 'addEnquette', component: AddEnquetteComponent },
+      { path: 'enquettes/:id', component: EnquetteComponent },
+      { path: 'addEnquette', component: AddEnquetteComponent },
       { path: '**', component: NotFoundComponent },
     ],
   },

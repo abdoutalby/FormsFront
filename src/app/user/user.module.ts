@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { AddEnqUserComponent } from './add-enq-user/add-enq-user.component';
+import { AddReclamationComponent } from './add-reclamation/add-reclamation.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AddEnqUserComponent } from './add-enq-user/add-enq-user.component';
     EnquetteComponent,
     QuestionViewComponent,
     AddEnqUserComponent,
+    AddReclamationComponent,
     
    
   ],
@@ -55,6 +57,7 @@ import { AddEnqUserComponent } from './add-enq-user/add-enq-user.component';
    MatIconModule,
    MatListModule,
    MatCardModule,
+   MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule

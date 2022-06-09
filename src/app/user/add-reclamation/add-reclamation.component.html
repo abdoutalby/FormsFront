@@ -1,0 +1,38 @@
+<section>
+  <div class="container mx-4 my-4">
+    <div class="mat-elevation-z6 mx-4 my-4">
+      <form>
+        <div class="container">
+          <mat-form-field
+            class="example-full-width mx-4 my-4"
+            appearance="fill"
+            style="width: 40%"
+          >
+            <mat-label>Reclamation titre</mat-label>
+            <input matInput type="text" [(ngModel)]="titre" name="titre" />
+          </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field
+            class="example-full-width mx-4"
+            appearance="fill"
+            style="width: 70%"
+          >
+            <mat-label>please feel free to express </mat-label>
+            <textarea
+              [(ngModel)]="content"
+              name="content"
+              matInput
+              placeholder="Ex. It makes me feel..."
+              name="description "
+            ></textarea>
+          </mat-form-field>
+
+          <button mat-button (click)="reclamer()">
+            Submit<mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,8 +1,8 @@
-<div class="card mx-4 my-4">
-  <h1>{{ question.question }} ?</h1>
+<mat-card class="d-flex">
   <div [ngSwitch]="question.type">
-    <input type="text" *ngSwitchCase="'text'" />
-
+    <div>
+      <mat-label>{{ question.question }} ?</mat-label>
+    </div>
     <mat-form-field
       class="example-full-width"
       appearance="fill"
@@ -60,4 +60,4 @@
       <input matInput type="text" />
     </mat-form-field>
   </div>
-</div>
+</mat-card>

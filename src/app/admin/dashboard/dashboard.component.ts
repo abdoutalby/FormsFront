@@ -12,28 +12,21 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DashboardComponent implements OnInit {
   
-  a: number = 0;
-  users!: User[];
+ 
+  users: any;
 
   constructor(private userService:UserService, private question:EnquetteService, private enq:EnquetteService) { }
 
   ngOnInit(): void {
     this.getUsers()
-    this.getQuestion()
-    this.getEnq()
+    
   }
-  getEnq() {
-    throw new Error('Method not implemented.');
-  }
-  getQuestion() {
-  
-  }
+   
   getUsers() {
     this.userService.getAllUsers().subscribe(data => {
       console.log(data);
-      //this.users = data;
-      this.a = this.users.length;
-      console.log(this.a);
+      this.users = data;
+       
       
 
     });  }

@@ -52,7 +52,7 @@ export class EnquettesComponent implements OnInit {
    
 
     edit(id : number){
-      this.router.navigate(['/admin/enquettes/'+id])
+      this.router.navigate(['/user/enquettes/'+id])
     }
      
       
