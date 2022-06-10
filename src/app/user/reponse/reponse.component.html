@@ -1,0 +1,40 @@
+<div class="container mat-elevation-z8">
+    <h4 class="full-width">Détails de Réponse</h4>
+ 
+    <form class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Réponse</mat-label>
+            <input 
+            [(ngModel)]="rep.reponse"
+            name="reponse"
+            matInput 
+            [disabled]="true">
+          </mat-form-field>
+     </form>
+ 
+   
+     <form class="form">
+      <mat-form-field class="full-width" appearance="outline">
+          <mat-label>User</mat-label>
+          <input 
+          [(ngModel)]="rep.user"
+          name="user"
+          matInput 
+          [disabled]="true">
+        </mat-form-field>
+   </form>
+
+   <form class="form">
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Question</mat-label>
+        <input 
+        [(ngModel)]="rep.question"
+        name="question"
+        matInput 
+        [disabled]="true">
+      </mat-form-field>
+ </form>
+
+     <button routerLink="../../" class="full-width mat-elevation-z4" mat-stroked-button color="warn">Retouner</button>
+ 
+ </div>

@@ -8,6 +8,7 @@ import { EnquetteComponent } from './enquette/enquette.component';
 import { EnquettesComponent } from './enquettes/enquettes.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReponseComponent } from './reponse/reponse.component';
 import { UserComponent } from './user.component';
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'myenquettes', component: EnquettesComponent },
       { path: 'enquettes/:id', component: EnquetteComponent },
       {path:'addEnquette',component:AddEnqUserComponent},
-      {path:'reclamer' , component : AddReclamationComponent}
+      {path:'reclamer' , component : AddReclamationComponent},
+      {path:'reponse/:id',component:ReponseComponent}
     ],
   },
 ];

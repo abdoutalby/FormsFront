@@ -27,6 +27,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { AddEnqUserComponent } from './add-enq-user/add-enq-user.component';
 import { AddReclamationComponent } from './add-reclamation/add-reclamation.component';
+import { ReponseComponent } from './reponse/reponse.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AddReclamationComponent } from './add-reclamation/add-reclamation.compo
     QuestionViewComponent,
     AddEnqUserComponent,
     AddReclamationComponent,
+    ReponseComponent,
     
    
   ],

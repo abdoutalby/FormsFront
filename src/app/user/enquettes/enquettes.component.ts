@@ -55,7 +55,10 @@ export class EnquettesComponent implements OnInit {
       this.router.navigate(['/user/enquettes/'+id])
     }
      
-      
+      reponse(id:number){
+        this.router.navigate(['/user/reponse/'+id])
+
+      }
   
 
   delete (id : number){
