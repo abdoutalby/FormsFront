@@ -15,7 +15,7 @@
         [(ngModel)]="description"
       ></textarea>
     </mat-form-field>
-    <div class="d-flex align-items-end">
+    <div class="d-flex justify-content-end">
       <button
         mat-icon-button
         color="secondary"
@@ -23,7 +23,12 @@
         (click)="showAdd()"
       >
         <mat-icon>add_circle</mat-icon></button
-      ><button mat-icon-button color="secondary" aria-label="delete">
+      ><button
+        mat-icon-button
+        color="secondary"
+        aria-label="delete"
+        (click)="delete()"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -62,10 +67,25 @@
       </mat-form-field>
 
       <section class="example-section" *ngSwitchCase="types[0]">
-        <mat-checkbox class="example-margin">option one </mat-checkbox>
-        <button mat-icon-button color="secondary" (click)="checkboxAddOption()">
-          <mat-icon>add_circle</mat-icon>
-        </button>
+        <div class="d-flex">
+          <mat-form-field>
+            <mat-label>add an option</mat-label>
+            <input matInput name="option" [(ngModel)]="option" />
+          </mat-form-field>
+          <div class="d-flex justify-content-end">
+            <button mat-icon-button (click)="addOption()">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div *ngFor="let o of options">
+          <div class="d-flex" style="width: 100%">
+            <mat-label>{{ o }}</mat-label>
+            <div class="d-flex justify-content-end">
+              <mat-icon (click)="deleteOption(o)">delete</mat-icon>
+            </div>
+          </div>
+        </div>
       </section>
 
       <mat-form-field
@@ -79,15 +99,25 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
       </mat-form-field>
-
-      <mat-form-field appearance="fill" *ngSwitchCase="types[3]">
-        <mat-label>Select an option</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Option 1</mat-option>
-          <mat-option value="2">Option 2</mat-option>
-          <mat-option value="3">Option 3</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div *ngSwitchCase="types[3]">
+        <div class="d-flex">
+          <mat-form-field>
+            <mat-label>add an option</mat-label>
+            <input matInput name="option" [(ngModel)]="option" />
+          </mat-form-field>
+          <div class="d-flex justify-content-end">
+            <button mat-icon-button (click)="addOption()">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div *ngFor="let o of options" class="d-flex">
+          <mat-label>{{ o }}</mat-label>
+          <span class="d-flex justify-content-end">
+            <mat-icon (click)="deleteOption(o)">delete</mat-icon>
+          </span>
+        </div>
+      </div>
 
       <mat-form-field
         class="example-full-width"
@@ -107,7 +137,7 @@
         <input matInput type="text" />
       </mat-form-field>
     </section>
-    <mat-card-footer class="py-2 px-2">
+    <mat-card-footer class="py-2 px-2 d-flex align-items-end">
       <button mat-button (click)="saveQuestion()">save</button>
     </mat-card-footer>
   </mat-card>

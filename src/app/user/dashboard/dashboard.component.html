@@ -1,39 +1,15 @@
+<div class="container">
+ 
+<div class="containers mat-elevation-z8 text-center">
+   <div style="display: block">
+    <canvas baseChart
+      [data]="radarChartData"
+      [options]="radarChartOptions"
 
-<div class="container" >
-
-    <h4>Liste des réponses</h4>
-  
-  
-  
-    <div class="mat-elevation-z8">
-  
-       <table mat-table [dataSource]="dataSource">
-  
-        
-  
-          <ng-container matColumnDef="reponse">
-             <th mat-header-cell *matHeaderCellDef> Réponse </th>
-             <td mat-cell *matCellDef="let element"> {{element.reponse}} </td>
-          </ng-container>
-  
-          <ng-container matColumnDef="Demandeur">
-             <th mat-header-cell *matHeaderCellDef> Demandeur </th>
-             <td mat-cell *matCellDef="let element"> {{element.user?.username}} </td>
-          </ng-container>
-  
-          <ng-container matColumnDef="question">
-             <th mat-header-cell *matHeaderCellDef> Question</th>
-             <td mat-cell *matCellDef="let element"> {{element.question}} </td>
-          </ng-container>
-  
-        *
-    
-  
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-       </table>
-  
-       <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
-    </div>
-  
+      [type]="radarChartType">
+    </canvas>
   </div>
+</div>
+ 
+
+</div>

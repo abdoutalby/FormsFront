@@ -2,44 +2,38 @@
   href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
   rel="stylesheet"
 />
-<section class="py-6 bg-light-primary">
+<section class="py-6 bg-light-primary" style="height: 90%">
   <div class="container bg-light-primary">
-    <div class="row flex-lg-nowrap bg-light-primary">
-      <div class="col-12 col-lg-auto mb-3" style="width: 200px"></div>
-
-      <div class="col">
-        <div class="row">
-          <div class="col mb-3">
-            <div class="card bg-light-primary mt-4">
-              <div class="card-body">
-                <div class="e-profile">
-                  <div class="row">
-                    <div
-                      class="col d-flex flex-column flex-sm-row justify-content-between mb-3 text-center"
-                    >
-                      <div class="text-center text-sm-left mb-2 mb-sm-0">
-                        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">
-                          {{ user.username }}
-                        </h4>
-                        <p class="mb-0">{{ user.email }}</p>
-                        <div class="text-muted">
-                          <small>{{ user.name }} </small>
-                        </div>
-                      </div>
-                      <div class="text-center text-sm-right">
-                        <span class="badge badge-secondary">{{
-                          user.roles[0].name == "ROLE_USER" ? "user" : "admin"
-                        }}</span>
+    <div class="col">
+      <div class="row">
+        <div class="col mb-3">
+          <div class="card bg-light-primary mt-4">
+            <div class="card-body">
+              <div class="e-profile">
+                <div class="row">
+                  <div
+                    class="col d-flex flex-column flex-sm-row justify-content-between mb-3 text-center"
+                  >
+                    <div class="text-center text-sm-left mb-2 mb-sm-0">
+                      <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">
+                        {{ user.username }}
+                      </h4>
+                      <p class="mb-0">{{ user.email }}</p>
+                      <div class="text-muted">
+                        <small>{{ user.name }} </small>
                       </div>
                     </div>
+                    <div class="text-center text-sm-right">
+                      <span class="badge badge-secondary">{{
+                        user.roles[0].name == "ROLE_USER" ? "user" : "admin"
+                      }}</span>
+                    </div>
                   </div>
-                  <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                      <a href="" class="active nav-link">Settings</a>
-                    </li>
-                  </ul>
-                  <div class="tab-content pt-3">
-                    <div class="tab-pane active">
+                </div>
+
+                <mat-tab-group>
+                  <mat-tab label="Settings">
+                    <div class="container mt-4">
                       <form class="form" novalidate="">
                         <div class="row">
                           <div class="col">
@@ -112,48 +106,71 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
-                          <div class="col-12 col-sm-6 mb-3">
-                            <div class="mb-2"><b>Change Password</b></div>
 
-                            <div class="row">
-                              <div class="col">
-                                <div class="form-group">
-                                  <label>New Password</label>
-                                  <input
-                                    class="form-control"
-                                    type="password"
-                                    placeholder="set new password"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <div class="form-group">
-                                  <label
-                                    >Confirm
-                                    <span class="d-none d-xl-inline"
-                                      >Password</span
-                                    ></label
-                                  >
-                                  <input class="form-control" type="password" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         <div class="row">
                           <div class="col d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">
+                            <button
+                              class="btn btn-primary"
+                              type="submit"
+                              (click)="update()"
+                            >
                               Save Changes
                             </button>
                           </div>
                         </div>
                       </form>
                     </div>
-                  </div>
-                </div>
+                  </mat-tab>
+
+                  <mat-tab label="Password">
+                    <div class="container mt-4">
+                      <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                          <div class="mb-2"><b>Change Password</b></div>
+
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>New Password</label>
+                                <input
+                                  class="form-control"
+                                  type="password"
+                                  [(ngModel)]="pwd"
+                                  placeholder="set new password"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label
+                                  >Confirm
+                                  <span class="d-none d-xl-inline"
+                                    >Password</span
+                                  ></label
+                                >
+                                <input
+                                  class="form-control"
+                                  type="password"
+                                  [(ngModel)]="pwdc"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col d-flex justify-content-end">
+                              <button class="btn btn-primary" type="submit">
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-tab>
+                </mat-tab-group>
               </div>
             </div>
           </div>

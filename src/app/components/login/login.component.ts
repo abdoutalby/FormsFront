@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         next: (res) => {  
             localStorage.setItem("token" , res.accessToken);
             localStorage.setItem('user' ,JSON.stringify( res.user));
-            if(this.service.isLoggedAdmin()){
+            if(this.service.isLoggedAdmin()|| this.service.isLoggedSuper()){
               this.router.navigate(['/admin/dashboard'])
             }
           else{

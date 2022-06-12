@@ -1,50 +1,83 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Reponse } from 'src/app/models/reponse';
 import { AuthService } from 'src/app/services/auth.service';
 import { ResponseService } from 'src/app/services/response.service';
+
+import { EnquetteService } from 'src/app/services/enquette.service';
+import { QuestionService } from 'src/app/services/question.service';
+import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  enquettes: any;
+  questions = 0;
 
-  ELEMENT_DATA: Response[] = []
-  FILTERED_DATA: Response[] = []
-  dataSource = new MatTableDataSource<Response>(this.ELEMENT_DATA);
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
-  displayedColumns: string[] = ['reponse','Demandeur',"question"];
-  rep:Reponse = {
-    id:'',
-    question :'',
-    reponse:'',
-    user:''
+  
 
-   }
-  constructor(private toaster : ToastrService ,
-    private auth : AuthService,
-    private service : ResponseService , 
-     private router : Router) { }
+  constructor(
+    private toaster: ToastrService,
+    private auth: AuthService,
+    private service: ResponseService,
+    private questionService: QuestionService,
+    private router: Router,
+    private enquetteService: EnquetteService
+  ) {}
 
   ngOnInit(): void {
-    this.getall()
+    this.getAllEnqu();
   }
 
-  getall(){
-    this.service.getAllByEnq().subscribe(response => {
-    this.ELEMENT_DATA = response;
-    this.dataSource = new MatTableDataSource<Response>(response);
-    this.dataSource.paginator = this.paginator;
-    console.log(response);
-    
-    })
+  async getAllEnqu(){
+  await  this.enquetteService.getUserEnquettes(this.auth.user?.id).subscribe({
+      next: (res) => {
+        let sq =0;
+        this.enquettes = res;
+        this.radarChartData.datasets[0].data.push(this.enquettes.lenght)
+        this.enquettes.forEach(async (e: any) => {
+        await  this.enquetteService.getQuestions(e.id).subscribe({
+            next: (res: any) => {
+            
+              console.log(res.length, 'questo' , this.questions)
+             sq+=res.lenght
+              console.error(sq)
+            },
+          });
+        }); 
+        this.radarChartData.datasets[0].data.push(this.questions)
+        console.log(this.enquettes);
+        console.log('question : '+this.questions , 'enquettese : '+this.enquettes.length)
+      },
+      error: (err) => {
+        console.log(err.message);
+      },
+    });
+
   }
 
+  public radarChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+  };
+  public radarChartLabels: string[] = [ 'Enquettes', 'Questions', 'Reponses'] 
+  public radarChartData: ChartData<'radar'> = {
+    labels: this.radarChartLabels,
+    datasets: [
+      { data: [  ], label: 'Series A' },
+    ]
+  };
+  public radarChartType: ChartType = 'radar';
 
+  // events
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
 }

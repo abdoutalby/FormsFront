@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  
   user!: any;
 
   constructor(private http: HttpClient) {}
@@ -32,6 +33,27 @@ export class AuthService {
 
       for (let i = 0; i < roles.length; i++) {
         if (roles[i] == 'ROLE_ADMIN') {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  isLoggedSuper(): any {
+    let token = localStorage.getItem('token');
+    const helper = new JwtHelperService();
+    if (token) {
+      const decodedToken = helper.decodeToken(token);
+
+      let roles = decodedToken.roles;
+      roles = roles.replace('[', '');
+      roles = roles.replace(']', '');
+      roles = roles.split(', ');
+
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i] == 'ROLE_SUPER') {
           return true;
         }
       }

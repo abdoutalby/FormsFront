@@ -6,6 +6,9 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class UserService {
+  updateUser(user: any) {
+    return this.http.patch(this.API+user.id, user , this.auth.getToken())
+  }
   API = 'http://localhost:8080/api/user/';
 
   constructor(private http: HttpClient , private auth: AuthService) {}

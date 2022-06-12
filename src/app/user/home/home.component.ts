@@ -8,6 +8,7 @@ import { EnquetteService } from 'src/app/services/enquette.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  search ='';
 enquettes : any ;
   constructor(private service : EnquetteService  , private router : Router) { }
 

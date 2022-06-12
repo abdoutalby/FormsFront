@@ -8,7 +8,7 @@
               <span class="fas fa-user"> &nbsp; &nbsp; </span>
             </div>
             <div class="text">
-              Liste des utilisateurs inscrits : {{ users?.length }}
+              utilisateurs inscrits : {{ users?.length }}
               <span class="small d-block">Lister les utilisateurs</span>
             </div>
           </a>
@@ -17,12 +17,12 @@
 
       <div class="col-lg-4 col-sm-6 col-12">
         <div class="box-information">
-          <a routerLink="" class="no-arrow">
+          <a routerLink="/admin/enquettes" class="no-arrow">
             <div class="image">
               <span class="fas fa-file-circle-question">&nbsp; &nbsp;</span>
             </div>
             <div class="text">
-              Liste des enquettes :
+              enquettes : {{ enquettes?.length }}
               <span class="small d-block">Lister les enquettes</span>
             </div>
           </a>
@@ -31,13 +31,13 @@
 
       <div class="col-lg-4 col-sm-6 col-12">
         <div class="box-information">
-          <a routerLink="" class="no-arrow">
+          <a routerLink="" class="no-arrow" routerLink="/admin/reclamations">
             <div class="image">
               <span class="fas fa-circle-question">&nbsp; &nbsp;</span>
             </div>
             <div class="text">
-              Liste des questions
-              <span class="small d-block">Lister les questions </span>
+              reclamations : {{ reclams?.length }}
+              <span class="small d-block">Lister les reclamations </span>
             </div>
           </a>
         </div>

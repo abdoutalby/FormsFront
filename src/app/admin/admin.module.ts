@@ -13,17 +13,22 @@ import { QuestionsComponent } from './questions/questions.component';
 import { ResponsesComponent } from './responses/responses.component';
 import { ReclamationsComponent } from './reclamations/reclamations.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnquetteComponent } from './enquette/enquette.component';
-import { QuestionEditComponent } from './question-edit/question-edit.component'; 
+import { QuestionEditComponent } from './question-edit/question-edit.component';
 import { AddEnquetteComponent } from '../components/add-enquette/add-enquette.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select'
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { QuestionViewComponent } from './question-view/question-view.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -40,18 +45,27 @@ import { QuestionViewComponent } from './question-view/question-view.component';
     EnquetteComponent,
     QuestionEditComponent,
     AddEnquetteComponent,
-QuestionViewComponent  ],
+    QuestionViewComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule, MatInputModule , 
-    MatCardModule,
-    MatSelectModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
     MatCheckboxModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatTableModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
- 
-
+    MatIconModule,
+    MatFormFieldModule,
   ],
 })
 export class AdminModule {}

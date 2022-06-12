@@ -1,12 +1,12 @@
-<section class="bg bg-light-primary">
-  <div class="text-center mt-4">
-    <h1>{{ enquette?.titre }}</h1>
-    <h5>{{ enquette?.description }}</h5>
-    <div class="container" style="width: 60%">
-      <app-question-view
-        *ngFor="let ques of questions"
-        [question]="ques"
-      ></app-question-view>
-    </div>
-  </div>
-</section>
+<mat-card class="containers mt-4">
+  <h1 class="full-width">{{ enquette?.titre }}</h1>
+  <h3 class="full-width">{{ enquette?.description }}</h3>
+</mat-card>
+<div class="containers">
+  <app-question-view
+    *ngFor="let ques of questions"
+    [question]="ques"
+    (repondreEvent)="repondre(ques, $event)"
+  ></app-question-view>
+  <button mat-raised-button routerLink="/user/home">retour</button>
+</div>

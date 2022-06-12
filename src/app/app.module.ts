@@ -28,6 +28,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
+ import { EnquettesPipe } from './pipes/enquettes.pipe';
+import { MatCardModule } from '@angular/material/card';
  @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NotFoundComponent,
          QuestionEditComponent,
          DialogComponent,
+          
          
   ],
   imports: [
@@ -56,10 +59,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatIconModule,
     MatListModule,
     MatPaginatorModule,
-    MatFormFieldModule,
+    MatCardModule,
+    
+ 
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule,
+    
     
 
    ],

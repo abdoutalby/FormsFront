@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEnquetteComponent } from '../components/add-enquette/add-enquette.component';
-import { NotFoundComponent } from '../components/not-found/not-found.component';
-import { AdminComponent } from './admin.component';
+ import { NotFoundComponent } from '../components/not-found/not-found.component';
+ import { AdminComponent } from './admin.component';
 import { AdminsComponent } from './admins/admins.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnquetteComponent } from './enquette/enquette.component';

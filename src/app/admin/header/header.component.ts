@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.LoggedInUser()
+    console.log(this.auth.isLoggedSuper())
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Questiontype } from 'src/app/models/questionType';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,6 +17,8 @@ export class AddEnqUserComponent implements OnInit {
   description: string = 'enquette discription';
   selected = 'text';
   question = 'question ?';
+  options : string []= [] ;
+  option= 'option one ' ;
   questions: any;
   add = true;
   enquette: any;
@@ -32,7 +35,8 @@ export class AddEnqUserComponent implements OnInit {
     private toaster: ToastrService,
     private auth: AuthService,
     private service: EnquetteService,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +53,11 @@ export class AddEnqUserComponent implements OnInit {
   }
   showAdd() {
     this.add = !this.add;
+  }
+
+
+  deleteOption(option : any){
+   this.options.splice(this.options.indexOf(option),1)
   }
 
   saveQuestion() {
@@ -70,12 +79,17 @@ export class AddEnqUserComponent implements OnInit {
             const ques = {
               question: this.question,
               type: this.selected,
+              options: this.options
             };
             console.log(ques, 'question to add');
             this.service.addQuestion(this.enquette.id, ques).subscribe({
               next: (res) => {
                 this.toaster.success('', 'enqette added succsefully ');
                 console.log(res, 'result of quesion ');
+                this.question =''
+                this.option=''
+                this.options=[]
+                this.selected = 'text'
                 this.getEnqQuestions();
                 this.first = false;
               },
@@ -94,11 +108,16 @@ export class AddEnqUserComponent implements OnInit {
       const ques = {
         question: this.question,
         type: this.selected,
+        options: this.options
       };
       this.service.addQuestion(this.enquette.id, ques).subscribe({
         next: (res) => {
           this.toaster.success('', 'enqette added succsefully ');
           console.log(res, 'result of quesion ');
+          this.question =''
+          this.selected = 'text'
+          this.option=''
+          this.options=[]
           this.getEnqQuestions();
         },
         error: (err) => {
@@ -121,4 +140,20 @@ export class AddEnqUserComponent implements OnInit {
   };
 
   createquestion() {}
+
+  addOption(){
+    this.options.push(this.option)
+    this.option = '';
+  }
+
+  delete(){
+    if(this.enquette){
+      this.service.delete(this.enquette.id).subscribe({
+        next:(res)=>{
+          this.toaster.success('deleted')
+          this.router.navigate(['/user/myenquettes'])
+        }
+      })
+    }
+  }
 }
