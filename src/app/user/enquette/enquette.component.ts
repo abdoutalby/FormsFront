@@ -14,6 +14,27 @@ export class EnquetteComponent implements OnInit {
   id: any;
   questions: any;
   enquette: any;
+  
+  themes =[
+    {
+      color : "black",
+      selected : "false"
+    } ,
+    {
+      color : "white",
+      selected : "false"
+    } , {
+      color : "gray",
+      selected : "false"
+    } , {
+      color : "green",
+      selected : "true"
+    } , {
+      color : "blue",
+      selected : "false"
+    } 
+  ]
+  selectedTheme : any;
   constructor(
     private route: ActivatedRoute,
     private service: EnquetteService,
@@ -24,28 +45,45 @@ export class EnquetteComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.getEnquette();
-    this.getQuestions();
+       this.getEnquette();
+    this.getQuestions();   
   }
 
   repondre(q: any, reponse: any) {
-    console.log('repondre au question ' + q + ' avec' + reponse);
-    const res = {
+     const res = {
         user : this.auth.user,
         question : q,
         reponse : reponse
     }
-    console.log('response to send ' , res)
-    this.reponseService.repondre(q.id,res).subscribe({
+     this.reponseService.repondre(q.id,res).subscribe({
       next: (res) => {this.taoster.success('done ')},
       error: (err) => {this.taoster.error(err.message)},
     });
   }
-  getEnquette() {
-    this.service.getById(this.id).subscribe({
-      next: (res) => (this.enquette = res),
+  async getEnquette() {
+   await this.service.getById(this.id).subscribe({
+      next: (res) => {
+        
+        this.enquette = res
+        console.log(this.enquette)
+       
+      },
       error: (err) => console.error(err),
     });
+  }
+
+  changeTheme(){
+     this.themes= this.themes.filter(t=>t.color===this.selectedTheme)
+ 
+    this.service.addtheme(this.enquette.id, this.themes[0]).subscribe({
+      next : (res )=>{
+        console.log(res)
+        this.getEnquette()
+      },
+      error :(err)   =>{
+        console.log(err)
+      }
+    })
   }
 
   getQuestions() {

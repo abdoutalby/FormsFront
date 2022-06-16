@@ -1,12 +1,16 @@
-<mat-card class="containers mt-4">
-  <h1 class="full-width">{{ enquette?.titre }}</h1>
-  <h3 class="full-width">{{ enquette?.description }}</h3>
-</mat-card>
-<div class="containers">
-  <app-question-view
-    *ngFor="let ques of questions"
-    [question]="ques"
-    (repondreEvent)="repondre(ques, $event)"
-  ></app-question-view>
-  <button mat-raised-button routerLink="/user/home">retour</button>
+<div *ngIf="enquette" [ngStyle]="{ 'background-color': enquette.themes.color }">
+ 
+  <mat-card class="containers mt-4">
+    <h1 class="full-width">{{ enquette?.titre }}</h1>
+    <h3 class="full-width">{{ enquette?.description }}</h3>
+  
+  </mat-card>
+  <div class="containers" style="background-color:'{{ enquette?.theme }}' ;">
+    <app-question-view
+      *ngFor="let ques of questions"
+      [question]="ques"
+      (repondreEvent)="repondre(ques, $event)"
+    ></app-question-view>
+    <button mat-raised-button routerLink="/user/home">retour</button>
+  </div>
 </div>

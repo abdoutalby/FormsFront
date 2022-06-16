@@ -13,6 +13,27 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./enquettes.component.scss']
 })
 export class EnquettesComponent implements OnInit {
+  themes =[
+    {
+      color : "black",
+      selected : "false"
+    } ,
+    {
+      color : "white",
+      selected : "false"
+    } , {
+      color : "gray",
+      selected : "false"
+    } , {
+      color : "green",
+      selected : "true"
+    } , {
+      color : "blue",
+      selected : "false"
+    } 
+  ]
+  selectedTheme : any;
+
   ELEMENT_DATA: Enquette[] = []
   FILTERED_DATA: Enquette[] = []
   dataSource = new MatTableDataSource<Enquette>(this.ELEMENT_DATA);

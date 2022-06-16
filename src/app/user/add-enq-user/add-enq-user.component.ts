@@ -31,6 +31,29 @@ export class AddEnqUserComponent implements OnInit {
     Questiontype.number,
     Questiontype.text,
   ];
+
+
+  themes =[
+    {
+      color : "black",
+      selected : "false"
+    } ,
+    {
+      color : "white",
+      selected : "false"
+    } , {
+      color : "gray",
+      selected : "false"
+    } , {
+      color : "green",
+      selected : "true"
+    } , {
+      color : "blue",
+      selected : "false"
+    } 
+  ]
+  selectedTheme : any;
+
   constructor(
     private toaster: ToastrService,
     private auth: AuthService,
@@ -55,7 +78,19 @@ export class AddEnqUserComponent implements OnInit {
     this.add = !this.add;
   }
 
+  changeTheme(){
+    this.themes= this.themes.filter(t=>t.color===this.selectedTheme)
 
+   this.service.addtheme(this.enquette.id, this.themes[0]).subscribe({
+     next : (res )=>{
+       console.log(res)
+        
+     },
+     error :(err)   =>{
+       console.log(err)
+     }
+   })
+ }
   deleteOption(option : any){
    this.options.splice(this.options.indexOf(option),1)
   }

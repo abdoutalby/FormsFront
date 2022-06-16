@@ -24,6 +24,11 @@ export class EnquetteService {
     return this.http.get(this.api + id, this.auth.getToken());
   }
 
+  addtheme(id: any , theme : any ){
+    console.log(theme ,'from the sesrveref')
+    return this.http.post(this.api+"addTheme/"+id ,theme, this.auth.getToken())
+  }
+
   addQuestion(id: number, data: any) {
     return this.http.post(
       this.api + 'addQuestion/' + id,
